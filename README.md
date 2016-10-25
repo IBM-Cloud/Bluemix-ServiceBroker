@@ -5,7 +5,7 @@ In this "How to" I am going to explain the steps to register your own Service Br
 [IBM Bluemix allows to run applications on Cloud Foundry](https://console.eu-gb.bluemix.net/docs/overview/whatisbluemix.html). It comes in three flavors: Bluemix Public provides a shared cloud infrastructure whereas Bluemix Dedicated is a customer-specifc dedicated cloud. Lastly, Bluemix Local is a private cloud in the customer data center. Because of the delivery model the individual user privileges differ which may impact what kind of service brokers can be added to Bluemix.
 
 # Brokers: Standard Private vs. Space-Scoped Private
-Cloud Foundry Service Brokers distinguishes between Standard Private Brokers and Space-Scoped Private Brokers. Read here (until we expand this section...):
+Cloud Foundry Service Brokers distinguishes between Standard Private Brokers and Space-Scoped Private Brokers. The service offered by a space-scoped private brokers is only visible in the space where the broker has been registered. Services offered by standard private brokers can be made available to organizations. By default all services are private until enabled. Read here (until we expand this section...):
 http://docs.cloudfoundry.org/services/managing-service-brokers.html
 
 Regardless of the type of broker, there are some **important requirements**:
@@ -22,18 +22,24 @@ Create, list, update and delete service brokers. Enable their service plans for 
 
 ## Bluemix Public: Space-Scoped Private Brokers
 
-
 To register your broker, run the following CLI command:   
 `cf create-service-broker yourBrokerName userID password URL4yourBroker --space-scoped`   
 It registers your broker in the current space.
 
+
 ## Bluemix Dedicated and Bluemix Local: Standard Private Brokers
+Users of Bluemix Dedicated and Bluemix Local can register space-scoped private brokers. For the instructions see the previous section. In addition, users with administrator privileges to modify the catalog can create standard private brokers. Though Cloud Foundry documentation suggests to use the same command broker-related cf commands, Bluemix requires to use the BluemixAdminCLI 
+Registration of private service
 
 1. Make sure the BluemixAdminCLI plugin is installed
-2. Use the plugin to manage the broker lifecycle:   
-   `cf ba add-service-broker yourBrokerName userID password URL4yourBroker`
+2. Use that plugin to manage the broker lifecycle. Its sub-commands are invoked either with `cf ba` or `cf bluemix-admin` followed by the specific command.
 
+The following command registers the broker:
+`cf ba add-service-broker yourBrokerName userID password URL4yourBroker`  
 
+To remove an existing standard private service broker:
+`cf ba delete-service-broker yourBrokerName`  
+Only those brokers that don't have any related provisioned services can be deleted. 
 
 
 # Documentation Links
