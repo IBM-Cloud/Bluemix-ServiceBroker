@@ -1,7 +1,7 @@
-# Overview
-In this "How to" we are going to explain the steps to register your own Service Broker on Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services. The repository contains code for a very simple broker, our sample broker. Once deployed as a Bluemix app, it can be used to create/delete a broker, provision a pseudo service through that broker, bind and unbind it to/from an application, and to delete the service again. Neither our code nor the instructions below will touch topics such as managing service plans or how to enable certain service plans to organizations.
+# Private Brokers and Bluemix - Getting Started
+In this "Getting Started" we are going to explain the steps to register your own Service Broker on IBM Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services. The repository contains code for a very simple broker, our sample broker. Once deployed as a Bluemix app, it can be used to create/delete a broker, provision a pseudo service through that broker, bind and unbind it to/from an application, and to delete the service again. Neither our code nor the instructions below will touch topics such as managing service plans or how to enable certain service plans to organizations.
 
-##Table of Contents
+## Table of Contents
 * [Bluemix and Brokers](#bluemix-and-brokers)
 * [Register And Manage Service Brokers in Bluemix](#register-and-manage-service-brokers-in-bluemix)
 * [Example: Manage a Simple Broker](#example-manage-a-simple-broker)
@@ -9,6 +9,7 @@ In this "How to" we are going to explain the steps to register your own Service 
 * [Contact Information](#contact-information)
 
 # Bluemix and Brokers
+If you have already looked at [IBM Bluemix](http://ibm.com/bluemix) and Service Brokers, you will have noticed that there are different flavors of both Bluemix and of broker. So let's take a look at them.
 
 ## Bluemix Public vs. Bluemix Dedicated and Bluemix Local
 [IBM Bluemix allows to run applications on Cloud Foundry](https://console.eu-gb.bluemix.net/docs/overview/whatisbluemix.html). It comes in three flavors: Bluemix Public provides a shared cloud infrastructure whereas Bluemix Dedicated is a customer-specifc dedicated cloud. Lastly, Bluemix Local is a private cloud in the customer data center. Because of the delivery model the individual user privileges differ which may impact what kind of service brokers can be added to Bluemix.
