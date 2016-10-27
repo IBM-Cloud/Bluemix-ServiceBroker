@@ -32,9 +32,22 @@ Create, list, update and delete service brokers. Enable their service plans for 
 
 ## Bluemix Public: Space-Scoped Private Brokers
 
-To register your broker, run the following CLI command:   
+To register your broker, run the following CLI command. "yourBrokerName" is a name you give to your broker, userID/password are those to access the broker and URL4yourBroker is the address under which the broker is accessible to the Bluemix/Cloud Foundry cloud controller (the piece of software managing the services and more):   
 `cf create-service-broker yourBrokerName userID password URL4yourBroker --space-scoped`   
-It registers your broker in the current space.
+It registers your broker in the current space. Because the catalog in the Bluemix Console (the Web interface) is managed and shown for the organization, services offered through space-scoped private brokers are not listed. They are however visible in the Bluemix marketplace accessible via the CLI:   
+
+`cf marketplace`   
+The above command lists all services available to you, including the service brought in by the space-scoped private broker.
+
+Another option to see whether the broker has been successfully created is to list the brokers:   
+`cf service-brokers`
+
+To use a service offered via a broker it needs to be provisioned. This is done by creating a service instance of a specific service and one of its offered plans:   
+`cf create-service your-offered-service selected-plan yourServiceName`
+
+Delete   
+`cf delete-service-broker yourBrokerName`
+
 
 
 ## Bluemix Dedicated and Bluemix Local: Standard Private Brokers
