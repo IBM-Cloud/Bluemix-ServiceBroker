@@ -1,9 +1,10 @@
 # Overview
-In this "How to" I am going to explain the steps to register your own Service Broker on Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services.
+In this "How to" we are going to explain the steps to register your own Service Broker on Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services. The repository contains code for a very simple broker, our sample broker. Once deployed as a Bluemix app, it can be used to create/delete a broker, provision a pseudo service through that broker, bind and unbind it to/from an application, and to delete the service again.
 
 ##Table of Contents
 * [Bluemix and Brokers](#bluemix-and-brokers)
 * [Register And Manage Service Brokers in Bluemix](#register-and-manage-service-brokers-in-bluemix)
+* [Example: Manage a Simple Broker](#example-manage-a-simple-broker)
 * [Documentation Links](#documentation-links)
 * [Contact Information](#contact-information)
 
@@ -48,6 +49,19 @@ The following command registers the broker:
 To remove an existing standard private service broker:
 `cf ba delete-service-broker yourBrokerName`  
 Only those brokers that don't have any related provisioned services can be deleted. 
+
+# Example: Manage a Simple Broker
+In this section we are going to explain how to work with the sample broker included in this repository.
+## Download and Deploy the Sample Broker
+1) Clone or download and unpack this repository.
+2) Change into the directory with the cloned/unpacked files.
+3) Login to Bluemix and push the application:   
+   `cf push myBroker`
+   "myBroker" is the name you want to give to the broker. No other configuration necessary :)
+4) Now you should have a new Bluemix/Cloud Foundry application. This is YOUR new private broker. Start testing, see the next block of instructions.
+
+Once you have your broker up and running, let's try to use it.
+
 
 
 # Documentation Links
