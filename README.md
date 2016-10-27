@@ -34,20 +34,24 @@ Create, list, update and delete service brokers. Enable their service plans for 
 
 To register your broker, run the following CLI command. "yourBrokerName" is a name you give to your broker, userID/password are those to access the broker and URL4yourBroker is the address under which the broker is accessible to the Bluemix/Cloud Foundry cloud controller (the piece of software managing the services and more):   
 `cf create-service-broker yourBrokerName userID password URL4yourBroker --space-scoped`   
-It registers your broker in the current space. Because the catalog in the Bluemix Console (the Web interface) is managed and shown for the organization, services offered through space-scoped private brokers are not listed. They are however visible in the Bluemix marketplace accessible via the CLI:   
 
+It registers your broker in the current space. Because the catalog in the Bluemix Console (the Web interface) is managed and shown for the organization, services offered through space-scoped private brokers are not listed. They are however visible in the Bluemix marketplace accessible via the CLI:   
 `cf marketplace`   
+
 The above command lists all services available to you, including the service brought in by the space-scoped private broker.
 
 Another option to see whether the broker has been successfully created is to list the brokers:   
 `cf service-brokers`
 
-To use a service offered via a broker it needs to be provisioned. This is done by creating a service instance of a specific service and one of its offered plans:   
+To use a service offered via a broker it needs to be provisioned. This is done by creating a service instance of a specific service and one of its offered plans. "yourServiceName" is the name you want to give to the service:   
 `cf create-service your-offered-service selected-plan yourServiceName`
 
-Delete   
-`cf delete-service-broker yourBrokerName`
+A provisioned service can be removed by deleting it, referencing its name:   
+`cf delete-service yourServiceName`   
 
+If you want to get rid of the broker, simply delete it:   
+`cf delete-service-broker yourBrokerName`   
+Note that only brokers which do not have any associated services provisioned (read: "the service is in use") can be deleted.
 
 
 ## Bluemix Dedicated and Bluemix Local: Standard Private Brokers
@@ -57,12 +61,18 @@ Registration of private service
 1. Make sure the BluemixAdminCLI plugin is installed   
 2. Use that plugin to manage the broker lifecycle. Its sub-commands are invoked either with `cf ba` or `cf bluemix-admin` followed by the specific command.
 
-The following command registers the broker:
+The following command registers the broker. Similar to above, "yourBrokerName" is a name you give to your broker, userID/password are those to access the broker and URL4yourBroker is the address under which the broker is accessible to Bluemix:   
 `cf ba add-service-broker yourBrokerName userID password URL4yourBroker`  
 
 To remove an existing standard private service broker:
 `cf ba delete-service-broker yourBrokerName`  
 Only those brokers that don't have any related provisioned services can be deleted. 
+
+List registered brokers:   
+`cf ba service-brokers`   
+
+Services offered by the broker can be provisioned, i.e., an instance of it created, in the same way as for space-scoped private brokers. See above for the instructions.
+
 
 # Example: Manage a Simple Broker
 In this section we are going to explain how to work with the sample broker included in this repository.
