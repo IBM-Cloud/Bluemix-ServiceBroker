@@ -1,5 +1,5 @@
 # Overview
-In this "How to" we are going to explain the steps to register your own Service Broker on Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services. The repository contains code for a very simple broker, our sample broker. Once deployed as a Bluemix app, it can be used to create/delete a broker, provision a pseudo service through that broker, bind and unbind it to/from an application, and to delete the service again.
+In this "How to" we are going to explain the steps to register your own Service Broker on Bluemix Public, Dedicated and Local. Service Brokers are one option to extend Cloud Foundry using your own functionality and to integrate existing (on-premises or cloud) infrastructure and services. The repository contains code for a very simple broker, our sample broker. Once deployed as a Bluemix app, it can be used to create/delete a broker, provision a pseudo service through that broker, bind and unbind it to/from an application, and to delete the service again. Neither our code nor the instructions below will touch topics such as managing service plans or how to enable certain service plans to organizations.
 
 ##Table of Contents
 * [Bluemix and Brokers](#bluemix-and-brokers)
@@ -22,6 +22,7 @@ Regardless of the type of broker, there are some **important requirements**:
 1. Each broker is accessible via an URL and this URL needs to be unique across the entire Cloud Foundry instance.
 2. Each offered service has an ID and it needs to be unique the entire Cloud Foundry instance.
 3. Each service plan has an ID and it needs to be unique the entire Cloud Foundry instance.  
+4. If provided, then the ID for the service dashboard needs to be unique, too.
 
 Depending on the broker, the service ID and plan ID need to be changed in the source code or configuration file for that broker. In some cases the code already uses automatically generated [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) to avoid possible errors.
 
@@ -52,6 +53,9 @@ Only those brokers that don't have any related provisioned services can be delet
 
 # Example: Manage a Simple Broker
 In this section we are going to explain how to work with the sample broker included in this repository.
+
+The code for the sample broker consists of a single file only (bmx-sample-broker.py). The broker is written in Python and the file contains functionality to handle all the requests from Bluemix to try out the lifecycle of a private broker. The code is kept as simple as possible. Once the sample broker has been created, it advertises a "Pseudo Service" ("pseudo-service") in the Bluemix catalog. The service has two plans, "small" and "big", that can be provisioned. The provided code does not need any configuration because generated UUIDs are used for the service and plan IDs.
+
 ### Download and Deploy the Sample Broker
 1) Clone or download and unpack this repository.  
 2) Change into the directory with the cloned/unpacked files.   
@@ -65,15 +69,34 @@ Once you have your broker up and running, let's try to use it. For the following
 #### Bluemix Public
 If you are on Bluemix Public, your only option is to use the sample broker as "space-scoped private broker". The instructions are as already described above:
 
+* Register the sample broker as space-scoped private broker:   
+   `cf create-service-broker yourBrokerName test test broker-address --space-scoped`
+* List Service Broker:   
+   `cf service-brokers`
+* Create an instance of the advertised "pseudo-service" and name it "myservice", choose the small plan:   
+   `cf create-service pseudo-service small myservice`
+* Delete the provisioned service:   
+   `cf delete-service myservice`
+* Remove the broker:   
+   `cf delete-service-broker yourBrokerName`
+
+
+
 #### Bluemix Dedicated or Bluemix Local
 Depending on whether you are catalog administrator or regular user, you can either register the sample broker as "standard private broker" or only as space-scoped broker. If the latter, see the instructions in the previous section.
 
 Make sure that the BluemixAdminCLI plugin for the "cf" tool is installed. 
 
 * Register the sample broker  
-   `cf ba add-service-broker yourBrokerName test test http://myBroker.`
-* List Service Broker
-
+   `cf ba add-service-broker yourBrokerName test test broker-address`
+* List Service Broker   
+   `cf ba service-brokers`
+* Create an instance of the advertised "pseudo-service" and name it "myservice", choose the small plan:   
+   `cf create-service pseudo-service small myservice`
+* Delete the provisioned service:   
+   `cf delete-service myservice`
+* Remove the broker:   
+   `cf ba delete-service-broker yourBrokerName`
 
 
 # Documentation Links
