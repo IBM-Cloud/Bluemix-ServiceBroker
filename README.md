@@ -40,7 +40,7 @@ It registers your broker in the current space.
 Users of Bluemix Dedicated and Bluemix Local can register space-scoped private brokers. For the instructions see the previous section. In addition, users with administrator privileges to modify the catalog can create standard private brokers. Though Cloud Foundry documentation suggests to use the same command broker-related cf commands, Bluemix requires to use the BluemixAdminCLI 
 Registration of private service
 
-1. Make sure the BluemixAdminCLI plugin is installed
+1. Make sure the BluemixAdminCLI plugin is installed   
 2. Use that plugin to manage the broker lifecycle. Its sub-commands are invoked either with `cf ba` or `cf bluemix-admin` followed by the specific command.
 
 The following command registers the broker:
@@ -52,15 +52,27 @@ Only those brokers that don't have any related provisioned services can be delet
 
 # Example: Manage a Simple Broker
 In this section we are going to explain how to work with the sample broker included in this repository.
-## Download and Deploy the Sample Broker
-1) Clone or download and unpack this repository.
-2) Change into the directory with the cloned/unpacked files.
-3) Login to Bluemix and push the application:   
-   `cf push myBroker`
-   "myBroker" is the name you want to give to the broker. No other configuration necessary :)
+### Download and Deploy the Sample Broker
+1) Clone or download and unpack this repository.  
+2) Change into the directory with the cloned/unpacked files.   
+3) Login to Bluemix and push the application:    
+   `cf push myBroker`   
+   "myBroker" is the name you want to give to the broker. No other configuration necessary :)   
 4) Now you should have a new Bluemix/Cloud Foundry application. This is YOUR new private broker. Start testing, see the next block of instructions.
+### Manage the Broker
+Once you have your broker up and running, let's try to use it. For the following commands we assume that the broker was deployed with the name "myBroker". "broker-address" refers to the specific address of where your deployed broker is accessible, i.e. the URL for the app. It could be "http://mybroker.ng.mybluemix.net" or "http://mybroker.eu-gb.mybluemix.net" or something entirely different, depending on your specific Bluemix or Cloud Foundry environment.
 
-Once you have your broker up and running, let's try to use it.
+#### Bluemix Public
+If you are on Bluemix Public, your only option is to use the sample broker as "space-scoped private broker". The instructions are as already described above:
+
+#### Bluemix Dedicated or Bluemix Local
+Depending on whether you are catalog administrator or regular user, you can either register the sample broker as "standard private broker" or only as space-scoped broker. If the latter, see the instructions in the previous section.
+
+Make sure that the BluemixAdminCLI plugin for the "cf" tool is installed. 
+
+* Register the sample broker  
+   `cf ba add-service-broker yourBrokerName test test http://myBroker.`
+* List Service Broker
 
 
 
