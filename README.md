@@ -12,7 +12,9 @@ In this "Getting Started" we are going to explain the steps to register your own
 If you have already looked at [IBM Bluemix](http://ibm.com/bluemix) and Service Brokers, you will have noticed that there are different flavors of both Bluemix and of brokers. So let's take a look at them.
 
 ## Bluemix Public vs. Bluemix Dedicated and Bluemix Local
-[IBM Bluemix allows to run applications on Cloud Foundry](https://console.eu-gb.bluemix.net/docs/overview/whatisbluemix.html). It comes in three flavors: Bluemix Public provides a shared cloud infrastructure whereas Bluemix Dedicated is a customer-specifc dedicated cloud. Lastly, Bluemix Local is a private cloud in the customer data center. The Bluemix service catalog is based on Cloud Foundry. Using brokers new services can be published to the Bluemix catalog and provisioned by users. Because of the Bluemix delivery model (Public/Dedicated/Local) the individual user privileges differ which may impact what kind of service brokers can be added to Bluemix.
+[IBM Bluemix allows to run applications on Cloud Foundry](https://console.eu-gb.bluemix.net/docs/overview/whatisbluemix.html). It comes in three flavors: Bluemix Public provides a shared cloud infrastructure whereas Bluemix Dedicated is a customer-specifc dedicated cloud. Lastly, Bluemix Local is a private cloud in the customer data center.
+
+The Bluemix service catalog is based on Cloud Foundry. [Using brokers new services can be published to the Bluemix catalog and provisioned by users](http://docs.cloudfoundry.org/services/overview.html). Because of the Bluemix delivery model (Public/Dedicated/Local) the individual user privileges differ which may impact what kind of service brokers can be added to Bluemix.
 
 ## Brokers: Standard Private vs. Space-Scoped Private
 Cloud Foundry Service Brokers distinguishes between Standard Private Brokers and Space-Scoped Private Brokers. The service offered by a space-scoped private brokers is only visible in the space where the broker has been registered. Services offered by standard private brokers can be made available to organizations. By default all services are private until enabled.
