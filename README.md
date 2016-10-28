@@ -134,8 +134,11 @@ You can find background material on the Cloud Foundry and Bluemix pages:
 * Cloud Foundry Service Broker API: https://docs.cloudfoundry.org/services/api.html
 * Bluemix instructions on how to manage the catalog, including how to register a service broker: https://new-console.eu-gb.bluemix.net/docs/admin/index.html#oc_catalog
 
-# Contact Information
-If you have found errors or some instructions are not working anymore, then please open an GitHub issue. 
+# License
+See [LICENSE](LICENSE) for license information.
+
+# Contribute / Contact Information
+If you have found errors or some instructions are not working anymore, then please open an GitHub issue or, better, create a pull request with your desired changes.
 
 You can find more tutorials and sample code at:
 https://ibm-bluemix.github.io/
