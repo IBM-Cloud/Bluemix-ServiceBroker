@@ -28,6 +28,7 @@ Regardless of the type of broker, there are some **important requirements**:
 2. Each offered service has an ID and it needs to be unique the entire Cloud Foundry instance.
 3. Each service plan has an ID and it needs to be unique the entire Cloud Foundry instance.  
 4. If provided, then the ID for the service dashboard needs to be unique, too.
+5. Plans can only be defined as "free".
 
 Depending on the broker, the service ID and plan ID need to be changed in the source code or configuration file for that broker. In some cases the code already uses automatically generated [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) to avoid possible errors.
 
@@ -36,6 +37,7 @@ Create, list, update and delete service brokers. Enable their service plans for 
 
 Cloud Foundry provides an [API for managing service brokers](http://docs.cloudfoundry.org/services/api.html). It defines mandatory and optional data is exchanged between Cloud Foundry and the broker. Bluemix uses that Cloud Foundry API and details which of the optional data it would like to have in order for the Bluemix UI to work properly. The [Bluemix documentation on managing the catalog has a description and a sample](https://console.eu-gb.bluemix.net/docs/admin/index.html#oc_catalog).
 
+Note that for plans the metadata field "free" needs to have the value "true", i.e., plans currently can only be registered to be free.
 
 ## Bluemix Public: Space-Scoped Private Brokers
 
