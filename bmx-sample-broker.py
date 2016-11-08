@@ -1,6 +1,20 @@
-########################################################
-# (c) 2016 by IBM
+###############################################################
+# Copyright 2016 IBM Corp. All Rights Reserved.
 # Author: data-henrik
+#
+# Licensed under the Apache License, Version 2.0 (the “License”);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#  https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an “AS IS” BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+###############################################################
 #
 # Simple broker for demonstrating how to register Custom Service Brokers:
 # - Standard Private Broker
@@ -16,7 +30,7 @@
 # This file has two sections:
 # - Functions related to the service broker
 # - Few functions to simulate service-specific functionality like dashboard
-########################################################
+###############################################################
 
 # Importing some necessary libraries
 import os                      # to obtain environment info
@@ -24,14 +38,12 @@ from flask import Flask,jsonify,request,abort,make_response
 from flask_basicauth import BasicAuth
 import json
 import uuid
-#from werkzeug.exceptions import default_exceptions
-#from werkzeug.exceptions import HTTPException
 
 # Which API version do we support?
 X_BROKER_API_VERSION = 2.3
 X_BROKER_API_VERSION_NAME = 'X-Broker-Api-Version'
 
-
+# Start Flask
 app = Flask(__name__)
 
 # Configure our test username
