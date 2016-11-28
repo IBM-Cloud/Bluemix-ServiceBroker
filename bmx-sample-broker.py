@@ -40,7 +40,7 @@ import json
 import uuid
 
 # Which API version do we support?
-X_BROKER_API_VERSION = 2.3
+X_BROKER_API_VERSION = 2.0
 X_BROKER_API_VERSION_NAME = 'X-Broker-Api-Version'
 
 # Start Flask
