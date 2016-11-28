@@ -5,6 +5,7 @@ In this "Getting Started" we are going to explain the steps to register your own
 * [Bluemix and Brokers](#bluemix-and-brokers)
 * [Register And Manage Service Brokers in Bluemix](#register-and-manage-service-brokers-in-bluemix)
 * [Example: Manage a Simple Broker](#example-manage-a-simple-broker)
+* [Troubleshooting](#troubleshooting)
 * [Documentation Links](#documentation-links)
 * [Contact Information](#contact-information)
 
@@ -129,6 +130,13 @@ Make sure that the BluemixAdminCLI plugin for the "cf" tool is installed.
    `cf delete-service myservice`
 * Remove the broker:   
    `cf ba delete-service-broker yourBrokerName`
+
+# Troubleshooting
+If you can't get the broker (or another broker) to work, there could be different reasons for that problem:
+* Network connectivity:   
+  Can the Bluemix / Cloud Foundry cloud controller reach the broker? If the broker is a publicly available app it should, but if the broker is within a corporate network or deployed on Bluemix Dedicated / Bluemix Local the network configuration (proxy, firewall, etc.) might be an issue.
+* Naming / Unique Identifiers   
+  Are all the required unique identifiers really unique? Are there broker by other users that are using the same identifiers?
 
 
 # Documentation Links
