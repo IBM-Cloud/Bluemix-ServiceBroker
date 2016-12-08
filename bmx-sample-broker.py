@@ -283,7 +283,7 @@ def bind_service(instance_id, binding_id):
     return jsonify(service_info)
 
 
-port = os.getenv('VCAP_APP_PORT', '5000')
+port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(port),threaded=True)
     #app.run(host='0.0.0.0', port=int(port),debug=True,threaded=True)
