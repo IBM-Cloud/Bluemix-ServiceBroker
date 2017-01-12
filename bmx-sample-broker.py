@@ -19,10 +19,12 @@
 # See http://docs.cloudfoundry.org/services/api.html for the
 # Cloud Foundry Broker API Documentation
 #
-# This file has two sections:
+# This file has three sections:
 # - Functions related to the service broker
 # - Few functions to simulate service-specific functionality
 #   like the service dashboard
+# - Catch-all route to provide HTML output and point to the 
+#   GitHub repository
 ###############################################################
 
 # Importing some necessary libraries
@@ -106,7 +108,6 @@ pseudo_service = {'id': pseudo_service_id, 'name': 'pseudo-service',
 # * bind - bind/link a service to an app
 # * unbind - remove the linkage to an app
 ########################################################
-
 
 #
 # Catalog
@@ -274,6 +275,22 @@ def bind_service(instance_id, binding_id):
         abort(415, 'Unsupported Content-Type: expecting application/json')
     service_info={"instance_id" : instance_id, "binding_id" : binding_id}
     return jsonify(service_info)
+
+
+########################################################
+# Catch-all section - return HTML page for testing
+#
+#
+########################################################
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    page = '<title>Pseudo Broker</title>'
+    page += '<h1>Pseudo Broker</h1>'
+    page += 'See <a href="https://github.com/IBM-Bluemix/Bluemix-ServiceBroker">the GitHub repository for details.</a>?'
+    page += 'You requested path: %s' % path
+    return page
 
 
 port = os.getenv('PORT', '5000')
