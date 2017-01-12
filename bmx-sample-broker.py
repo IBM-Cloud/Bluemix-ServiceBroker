@@ -288,8 +288,8 @@ def bind_service(instance_id, binding_id):
 def catch_all(path):
     page = '<title>Pseudo Broker</title>'
     page += '<h1>Pseudo Broker</h1>'
-    page += 'See <a href="https://github.com/IBM-Bluemix/Bluemix-ServiceBroker">the GitHub repository for details.</a>?'
-    page += 'You requested path: %s' % path
+    page += '<p>See <a href="https://github.com/IBM-Bluemix/Bluemix-ServiceBroker">the related GitHub repository</a> for details.</p>'
+    page += '<p>You requested path: /%s </p>' % path
     return page
 
 
