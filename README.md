@@ -7,7 +7,7 @@ In this "Getting Started" we are going to explain the steps to register your own
 * [Example: Manage a Simple Broker](#example-manage-a-simple-broker)
 * [Troubleshooting](#troubleshooting)
 * [Documentation Links](#documentation-links)
-* [Contact Information](#contact-information)
+* [Contact Information](#contribute-contact-information)
 
 # Bluemix and Brokers
 If you have already looked at [IBM Bluemix](http://ibm.com/bluemix) and Service Brokers, you will have noticed that there are different flavors of both Bluemix and of brokers. So let's take a look at them.
