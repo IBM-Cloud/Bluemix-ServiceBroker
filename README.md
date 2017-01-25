@@ -65,11 +65,10 @@ Note that only brokers which do not have any associated services provisioned (re
 
 
 ## Bluemix Dedicated and Bluemix Local: Standard Private Brokers
-Users of Bluemix Dedicated and Bluemix Local can register space-scoped private brokers. For the instructions see the previous section. In addition, users with administrator privileges to modify the catalog can create standard private brokers. Though Cloud Foundry documentation suggests to use the same command broker-related cf commands, Bluemix requires to use the BluemixAdminCLI 
-Registration of private service
+Users of Bluemix Dedicated and Bluemix Local can register space-scoped private brokers. For the instructions see the previous section. In addition, users with administrator privileges to modify the catalog can create standard private brokers. Though Cloud Foundry documentation suggests to use the same command broker-related cf commands, for Bluemix you need to use the BluemixAdmin CLI plugin:
 
-1. Make sure the Bluemix-Admin CLI plugin is installed. See the [Bluemix Documentation on the admin plugin](https://console.eu-gb.bluemix.net/docs/cli/plugins/bluemix_admin/index.html) for instructions.   
-2. Use that plugin to manage the broker lifecycle. Its sub-commands are invoked either with `cf ba` or `cf bluemix-admin` followed by the specific command.
+- Install the Bluemix-Admin CLI plugin if not done yet. See the [Bluemix Documentation for the admin plugin](https://console.eu-gb.bluemix.net/docs/cli/plugins/bluemix_admin/index.html) for instructions.   
+- Use that plugin to manage the broker lifecycle. Its sub-commands are invoked either with `cf ba` or `cf bluemix-admin` followed by the specific command.
 
 The following command registers the broker. Similar to above, "yourBrokerName" is a name you give to your broker, userID/password are those to access the broker and URL4yourBroker is the address under which the broker is accessible to Bluemix:   
 `cf ba add-service-broker yourBrokerName userID password URL4yourBroker`  
